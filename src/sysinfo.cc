@@ -82,14 +82,12 @@ BENCHMARK_NORETURN void PrintErrorAndDie(Args&&... args) {
 /// ValueUnion - A type used to correctly alias the byte-for-byte output of
 /// `sysctl` with the result type it's to be interpreted as.
 struct ValueUnion {
-  //
   union DataT {
     uint32_t uint32_value;
     uint64_t uint64_value;
     // For correct aliasing of union members from bytes.
     char bytes[8];
   };
-  //
   using DataPtr = std::unique_ptr<DataT, decltype(&std::free)>;
 
   // The size of the data union member + its trailing array size.
@@ -99,6 +97,7 @@ struct ValueUnion {
  public:
   ValueUnion() : Size(0), Buff(nullptr, &std::free) {}
 
+  // Find number of members in DataT union
   explicit ValueUnion(size_t BuffSize)
       : Size(sizeof(DataT) + BuffSize),
         Buff(::new (std::malloc(Size)) DataT(), &std::free) {}
