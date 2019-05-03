@@ -116,7 +116,7 @@ void AppendHumanReadable(int n, std::string* str) {
 }
 
 std::string HumanReadableNumber(double n, double one_k) {
-  // Where is this referenced?
+  // To check: Where is this function referenced?
   // 1.1 means that figures up to 1.1k should be shown with the next unit down;
   // this softens edge effects.
   // 1 means that we should show one decimal place of precision.

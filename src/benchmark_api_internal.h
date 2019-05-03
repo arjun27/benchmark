@@ -18,13 +18,13 @@ struct Benchmark::Instance {
   Benchmark* benchmark;
   AggregationReportMode aggregation_report_mode;
   std::vector<int64_t> arg;
-  TimeUnit time_unit; // Is this an enum?
+  TimeUnit time_unit; // To check: Is this an enum?
   int range_multiplier;
   bool use_real_time;
   bool use_manual_time;
   BigO complexity;
   BigOFunc* complexity_lambda;
-  UserCounters counters;
+  UserCounters counters; // To check: Where is this declared?
   const std::vector<Statistics>* statistics;
   bool last_benchmark_instance;
   int repetitions;

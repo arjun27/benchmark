@@ -298,7 +298,7 @@ std::vector<BenchmarkReporter::Run> RunBenchmark(
       if (multiplier <= 1.0) multiplier = 2.0;
       double next_iters = std::max(multiplier * iters, iters + 1.0);
       if (next_iters > kMaxIterations) {
-        // What is the value of kMaxIterations?
+        // To check: What is the value of kMaxIterations?
         next_iters = kMaxIterations;
       }
       VLOG(3) << "Next iters: " << next_iters << ", " << multiplier << "\n";

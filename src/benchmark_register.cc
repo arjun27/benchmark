@@ -207,6 +207,7 @@ bool BenchmarkFamilies::FindBenchmarks(
         if ((re.Match(instance.name) && !isNegativeFilter) ||
             (!re.Match(instance.name) && isNegativeFilter)) {
           instance.last_benchmark_instance = (&args == &family->args_.back());
+          // To check: Hover over benchmarks to see its type
           benchmarks->push_back(std::move(instance));
         }
       }
@@ -388,13 +389,12 @@ Benchmark* Benchmark::UseManualTime() {
 }
 
 Benchmark* Benchmark::Complexity(BigO complexity) {
-  // What values does the BigO enum have?
+  // To check: What values does the BigO enum have?
   complexity_ = complexity;
   return this;
 }
 
 Benchmark* Benchmark::Complexity(BigOFunc* complexity) {
-  // Where is this declared?
   complexity_lambda_ = complexity;
   complexity_ = oLambda;
   return this;
