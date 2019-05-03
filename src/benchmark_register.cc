@@ -388,11 +388,13 @@ Benchmark* Benchmark::UseManualTime() {
 }
 
 Benchmark* Benchmark::Complexity(BigO complexity) {
+  // What values does the BigO enum have?
   complexity_ = complexity;
   return this;
 }
 
 Benchmark* Benchmark::Complexity(BigOFunc* complexity) {
+  // Where is this declared?
   complexity_lambda_ = complexity;
   complexity_ = oLambda;
   return this;

@@ -49,7 +49,7 @@ void ToExponentAndMantissa(double val, double thresh, int precision,
   if (val > big_threshold) {
     // Positive powers
     double scaled = val;
-    for (size_t i = 0; i < arraysize(kBigSIUnits); ++i) {
+    for (size_t i = 1; i < arraysize(kBigSIUnits); ++i) {
       scaled /= one_k;
       if (scaled <= big_threshold) {
         mantissa_stream << scaled;
@@ -116,6 +116,7 @@ void AppendHumanReadable(int n, std::string* str) {
 }
 
 std::string HumanReadableNumber(double n, double one_k) {
+  // Where is this referenced?
   // 1.1 means that figures up to 1.1k should be shown with the next unit down;
   // this softens edge effects.
   // 1 means that we should show one decimal place of precision.

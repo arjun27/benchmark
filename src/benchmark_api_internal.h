@@ -18,7 +18,7 @@ struct Benchmark::Instance {
   Benchmark* benchmark;
   AggregationReportMode aggregation_report_mode;
   std::vector<int64_t> arg;
-  TimeUnit time_unit;
+  TimeUnit time_unit; // Is this an enum?
   int range_multiplier;
   bool use_real_time;
   bool use_manual_time;
