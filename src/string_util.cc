@@ -49,7 +49,7 @@ void ToExponentAndMantissa(double val, double thresh, int precision,
   if (val > big_threshold) {
     // Positive powers
     double scaled = val;
-    for (size_t i = 1; i < arraysize(kBigSIUnits); ++i) {
+    for (size_t i = 0; i < arraysize(kBigSIUnits); ++i) {
       scaled /= one_k;
       if (scaled <= big_threshold) {
         mantissa_stream << scaled;

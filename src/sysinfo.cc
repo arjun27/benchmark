@@ -97,7 +97,6 @@ struct ValueUnion {
  public:
   ValueUnion() : Size(0), Buff(nullptr, &std::free) {}
 
-  // Find number of members in DataT union
   explicit ValueUnion(size_t BuffSize)
       : Size(sizeof(DataT) + BuffSize),
         Buff(::new (std::malloc(Size)) DataT(), &std::free) {}
